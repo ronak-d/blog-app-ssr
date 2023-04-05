@@ -7,11 +7,14 @@ const BlogTile = ({ data }) => {
   return data.map((blog, index) => {
     return (
       <div className="my-6 mx-3">
-        <Link href={`/singleBlog/${blog.id}`}>
-          <div className=" drop-shadow-2xl lg:flex rounded justify-between sm:w-4/5 container p-2 border-2 border-sky-500">
-            <div className="border-solid sm:w-20 my-1">{index + 1}</div>
-            <div className="flex-wrap my-1">{blog.title}</div>
-            <div className=" flex-wrap my-1">{blog.date}</div>
+        <Link href={`/singleBlog/${blog.it}`}>
+          <div className="shadow-lg lg:flex rounded justify-between sm:w-4/5 container p-2 ">
+            <div className="border-solid sm:w-20 my-1 font-medium">
+              {index + 1}
+            </div>
+            <div className="flex-wrap my-1 font-medium">{blog.title}</div>
+            <div className="flex-wrap my-1 font-medium">{`-ronak`}</div>
+            {/* <button className="flex-wrap my-1 primary font-medium">Edit</button> */}
           </div>
         </Link>
       </div>

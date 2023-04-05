@@ -11,9 +11,9 @@ export default function Home({ data }) {
   // console.log(data);
   return (
     <>
-      <h1 className="border-solid border-2 border-sky-500 justify">
+      <h1 className="flex justify-center items-center text-lg font-bold p-3">
         {" "}
-        Featured Blogs in News
+        Blogs
       </h1>
       <BlogTile data={data} />
     </>
@@ -22,16 +22,18 @@ export default function Home({ data }) {
 
 // this runs on every build time - it is used when we need pre-fetched data.
 export async function getStaticProps() {
-  const options = {
-    method: "GET",
-    url: "https://jsonplaceholder.typicode.com/posts",
-    // url: "https://crypto-news16.p.rapidapi.com/news/top/10",
-    headers: {
-      "X-RapidAPI-Key": "b038d947admsh5d40e69154679f1p14c275jsn8bf445dca1c9",
-      "X-RapidAPI-Host": "crypto-news16.p.rapidapi.com",
-    },
-  };
-  const res = await axios.request(options);
+  // const options = {
+  //   method: "GET",
+  //   // url: "http://localhost:3000/api/posts",
+  //   // url: "https://jsonplaceholder.typicode.com/posts",
+  //   // url: "https://crypto-news16.p.rapidapi.com/news/top/10",
+  //   headers: {
+  //     "X-RapidAPI-Key": "b038d947admsh5d40e69154679f1p14c275jsn8bf445dca1c9",
+  //     "X-RapidAPI-Host": "crypto-news16.p.rapidapi.com",
+  //   },
+  // };
+  // const res = await axios.request(options);
+  const res = await axios.request("http://localhost:3000/api/blogs");
   const data = res.data;
 
   return {
