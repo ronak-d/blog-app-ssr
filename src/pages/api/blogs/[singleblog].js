@@ -1,6 +1,6 @@
 export default function handler(req, res) {
   console.log(req.method);
-  const id = req.query;
+  const id = req.query.singleblog;
   console.log(id);
 
   const posts = [
@@ -219,10 +219,6 @@ export default function handler(req, res) {
     },
   ];
 
-  if (req.method == "GET") {
-    console.log(id);
-    res.status(200).json(posts);
-  }
   if (req.method === "GET" && id) {
     console.log("method+id", id);
 
@@ -234,10 +230,3 @@ export default function handler(req, res) {
     }
   }
 }
-
-// make it with the routers.
-
-// /posts
-// /posts/1
-
-// router.query wiill consist id and with that id code is in chatgpt.
