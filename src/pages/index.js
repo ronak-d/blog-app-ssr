@@ -22,11 +22,10 @@ export default function Home({ data }) {
 
 // this runs on every build time - it is used when we need pre-fetched data.
 export async function getStaticProps() {
-  // Call an external API endpoint to get blogs.
-  // You can use any data fetching library - axios or fetch
   const options = {
     method: "GET",
-    url: "https://crypto-news16.p.rapidapi.com/news/top/10",
+    url: "https://jsonplaceholder.typicode.com/posts",
+    // url: "https://crypto-news16.p.rapidapi.com/news/top/10",
     headers: {
       "X-RapidAPI-Key": "b038d947admsh5d40e69154679f1p14c275jsn8bf445dca1c9",
       "X-RapidAPI-Host": "crypto-news16.p.rapidapi.com",
@@ -35,11 +34,10 @@ export async function getStaticProps() {
   const res = await axios.request(options);
   const data = res.data;
 
-  // By returning { props: { data } }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
       data,
     },
+    revalidate: 10,
   };
 }
