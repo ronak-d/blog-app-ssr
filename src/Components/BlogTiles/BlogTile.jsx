@@ -1,16 +1,21 @@
 import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const BlogTile = ({ data }) => {
-  console.log(data);
+  console.log("data", data);
 
-  function handleDelete(id) {
+  const [newdata, setNewdata] = useState([]);
+
+  async function handleDelete(id) {
     console.log(id);
-    // axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    // data = data.filter((e) => e.id !== data.id);
+    const res = await axios.delete(
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    );
+    setNewdata(data.filter((e) => e.id !== data.id));
+    console.log(newdata);
   }
-
+  // if (newdata.legth > 0) {
   return data.map((blog, index) => {
     return (
       <div className="my-6 mx-3">
@@ -38,6 +43,7 @@ const BlogTile = ({ data }) => {
       </div>
     );
   });
+  // }
 };
 
 export default BlogTile;
