@@ -220,24 +220,8 @@ export default function handler(req, res) {
   ];
 
   if (req.method == "GET") {
+    // get  req for all blogs
     console.log(id);
     res.status(200).json(posts);
   }
-  if (req.method === "GET" && id) {
-    console.log("method+id", id);
-
-    const post = posts.find((post) => post.it === parseInt(id));
-    if (post) {
-      res.status(200).json(post);
-    } else {
-      res.status(404).json({ message: "Post not found" });
-    }
-  }
 }
-
-// make it with the routers.
-
-// /posts
-// /posts/1
-
-// router.query wiill consist id and with that id code is in chatgpt.
