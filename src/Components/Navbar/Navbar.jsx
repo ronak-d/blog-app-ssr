@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -7,7 +8,7 @@ const Navbar = () => {
       <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#" class="flex items-center">
-            <img
+            <Image
               src="https://flowbite.com/docs/images/logo.svg"
               class="h-8 mr-3"
               alt="Blogs"

@@ -3,11 +3,11 @@ import { useRouter } from "next/router";
 import PostPage from "../PostPage";
 
 const SingleBlogView = ({ data }) => {
-  console.log(data);
+  // console.log(data);
 
   const router = useRouter();
   const id = router.query.SingleBlogView;
-  console.log(id);
+  // console.log(id);
 
   return (
     <>
