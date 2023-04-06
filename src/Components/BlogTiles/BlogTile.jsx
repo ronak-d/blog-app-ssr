@@ -18,7 +18,7 @@ const BlogTile = ({ data }) => {
   // if (newdata.legth > 0) {
   return data.map((blog, index) => {
     return (
-      <div className="my-6 mx-3">
+      <div key={index} className="my-6 mx-3">
         <div className="shadow-md lg:flex rounded justify-between sm:w-4/5 container p-2 ">
           <Link href={`/singleBlog/${blog.id}`}>
             <div className="lg:flex">
